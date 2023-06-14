@@ -53,7 +53,7 @@ def detect_cuda_toolkit(repository_ctx):
             alternative = repository_ctx.path('/usr/lib/nvidia-cuda-toolkit/bin/nvcc')
             if str(ptxas_path) == "/usr/bin/ptxas" and alternative.exists:
                 ptxas_path = alternative
-            if repository_ctx.path(str(ptxas_path.dirname.dirname)+"/lib64").exists
+            if repository_ctx.path(str(ptxas_path.dirname.dirname)+"/lib64").exists:
                 cuda_path = str(ptxas_path.dirname.dirname)
     if cuda_path == None and _is_linux(repository_ctx):
         cuda_path = "/usr/local/cuda"
